@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.samaia</groupId>
-	<artifactId>samaia-app-telefone</artifactId>
+	<artifactId>samaia-app-pessoa-fisica</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>samaia-app</name>
+	<name>samaia-app-pessoa-fisica</name>
 	<description>App Prova Samaia</description>
 
 	<properties>
