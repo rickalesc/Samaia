@@ -1,0 +1,30 @@
+<div class="card">
+    <div class="card-body">
+      <form [formGroup]="angForm" novalidate>
+        <div class="form-group">
+          <label class="col-md-4">Número</label>
+          <input type="text" class="form-control"
+            formControlName="Numero" 
+            #Numero 
+            [(ngModel)] = "telefone.Numero"/>
+        </div>
+        <div *ngIf="angForm.controls['Numero'].invalid && (angForm.controls['Numero'].dirty || angForm.controls['Numero'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['Numero'].errors.required">
+            Número é obrigatório.
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">DDD</label>
+          <input type="text" class="form-control"
+          formControlName="Ddd" 
+          #Ddd [(ngModel)] = "telefone.Ddd"/>
+        </div>
+        <div class="form-group">
+          <button (click) = "updateTelefone(Numero.value, Ddd.value)" type="submit" class="btn btn-primary"
+          [disabled]="angForm.invalid" >
+            Salvar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>

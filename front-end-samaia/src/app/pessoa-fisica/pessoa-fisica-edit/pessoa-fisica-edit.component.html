@@ -1,0 +1,56 @@
+<div class="card">
+    <div class="card-body">
+      <form [formGroup]="angForm" novalidate>
+        <div class="form-group">
+          <label class="col-md-4">Nome</label>
+          <input type="text" class="form-control" 
+            formControlName="Nome" 
+            #Nome 
+            [(ngModel)] = "pessoa.Nome"/>
+        </div>
+        <div *ngIf="angForm.controls['Nome'].invalid && (angForm.controls['Nome'].dirty || angForm.controls['Nome'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['Nome'].errors.required">
+            Nome é obrigatório.
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">Cpf</label>
+          <input type="text" class="form-control"
+          formControlName="Cpf" 
+          #Cpf [(ngModel)] = "pessoa.Cpf"/>
+        </div>
+        <div *ngIf="angForm.controls['Cpf'].invalid && (angForm.controls['Cpf'].dirty || angForm.controls['Cpf'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['Cpf'].errors.required">
+            Cpf é obrigatório.
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">E-mail</label>
+          <input type="text" class="form-control" 
+            formControlName="Email" 
+            #Email
+            [(ngModel)] = "pessoa.Email"
+          />
+        </div>
+        <div *ngIf="angForm.controls['Email'].invalid && (angForm.controls['Email'].dirty || angForm.controls['Email'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['Email'].errors.required">
+            E-mail é obrigatório.
+          </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-4">Data de Nascimento</label>
+            <input type="date" class="form-control" 
+              formControlName="DataNascimento" 
+              #DataNascimento
+              [(ngModel)] = "pessoa.DataNascimento"
+            />
+          </div>
+        <div class="form-group">
+          <button (click) = "updatePessoa(Nome.value, Cpf.value, Email.value, DataNascimento.value)" type="submit" class="btn btn-primary"
+          [disabled]="angForm.invalid" >
+            Salvar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
